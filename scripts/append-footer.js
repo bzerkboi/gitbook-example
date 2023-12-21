@@ -25,6 +25,7 @@ const footer = require("fs").readFileSync(path.join(__dirname, "./footer.md"));
 
 // find each markdown document in the docs directory
 console.debug("Start looking for files ...");
+console.debug("file path = "+__dirname);
 glob(path.join(__dirname, "../docs/**/*.md"), async (error, fileNames) => {
   console.debug(fileNames);
   // for each document
@@ -38,9 +39,10 @@ glob(path.join(__dirname, "../docs/**/*.md"), async (error, fileNames) => {
       await fsPromises.writeFile(fileName, newFileContents);
     }
   });
-  console.debug("Done looking for files ...")
+
 
   await Promise.all(editPromises);
 
   spawn("git", ["add", "."]);
 });
+console.debug("Done looking for files ...");
