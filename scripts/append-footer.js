@@ -10,8 +10,8 @@ const ghActor = process.env["GITHUB_ACTOR"];
 const isGitHubActions = Boolean(process.env["GITHUB_ACTIONS"]);
 
 const GITBOOK_ACTOR = "gitbook-bot";
-console.log(`GitHub actions ${isGitHubActions}`);
-console.log(`GitHub actor ${ghActor}`);
+console.debug(`GitHub actions ${isGitHubActions}`);
+console.debug(`GitHub actor ${ghActor}`);
 
 if (isGitHubActions) {
   // If we're in GitHub Actions, only run this for pushes from GitBook
@@ -24,9 +24,9 @@ if (isGitHubActions) {
 const footer = require("fs").readFileSync(path.join(__dirname, "./footer.md"));
 
 // find each markdown document in the docs directory
-console.log("Start looking for files ...")
+console.debug("Start looking for files ...")
 glob(path.join(__dirname, "../docs/**/*.md"), async (error, fileNames) => {
-  console.log(fileNames);
+  console.debug(fileNames);
   // for each document
   const editPromises = fileNames.map(async (fileName) => {
     // load the contents of the document
@@ -38,7 +38,7 @@ glob(path.join(__dirname, "../docs/**/*.md"), async (error, fileNames) => {
       await fsPromises.writeFile(fileName, newFileContents);
     }
   });
-  console.log("Done looking for files ...")
+  console.debug("Done looking for files ...")
 
   await Promise.all(editPromises);
 
