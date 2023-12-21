@@ -13,12 +13,12 @@ const GITBOOK_ACTOR = "gitbook-bot";
 console.debug(`GitHub actions ${isGitHubActions}`);
 console.debug(`GitHub actor ${ghActor}`);
 
-if (isGitHubActions) {
+//if (isGitHubActions) {
   // If we're in GitHub Actions, only run this for pushes from GitBook
-  if (ghActor !== GITBOOK_ACTOR) {
-    process.exit(0);
-  }
-}
+//  if (ghActor !== GITBOOK_ACTOR) {
+//    process.exit(0);
+//  }
+//}
 
 // Load the footer from the footer.md file
 const footer = require("fs").readFileSync(path.join(__dirname, "./footer.md"));
