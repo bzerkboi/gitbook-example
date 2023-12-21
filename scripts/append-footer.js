@@ -1,3 +1,5 @@
+console.debug("testing my logging")
+
 var glob = require("glob");
 var fsPromises = require("fs/promises");
 var path = require("path");
