@@ -1,4 +1,4 @@
-var glob = require("glob");
+const {glob} = require("glob");
 var fsPromises = require("fs/promises");
 var path = require("path");
 const { spawn } = require("child_process");
@@ -24,7 +24,7 @@ console.debug(`GitHub actor ${ghActor}`);
 const footer = require("fs").readFileSync(path.join(__dirname, "./footer.md"));
 
 // find each markdown document in the docs directory
-console.debug("Start looking for files ...")
+console.debug("Start looking for files ...");
 glob(path.join(__dirname, "../docs/**/*.md"), async (error, fileNames) => {
   console.debug(fileNames);
   // for each document
