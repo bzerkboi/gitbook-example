@@ -22,6 +22,7 @@ if (isGitHubActions) {
 const footer = require("fs").readFileSync(path.join(__dirname, "./footer.md"));
 
 // find each markdown document in the docs directory
+console.log("Start looking for files ...")
 glob(path.join(__dirname, "../docs/**/*.md"), async (error, fileNames) => {
   console.log(fileNames);
   // for each document
@@ -35,6 +36,7 @@ glob(path.join(__dirname, "../docs/**/*.md"), async (error, fileNames) => {
       await fsPromises.writeFile(fileName, newFileContents);
     }
   });
+  console.log("Done looking for files ...")
 
   await Promise.all(editPromises);
 
