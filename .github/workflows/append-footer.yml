@@ -1,0 +1,29 @@
+name: append-footer
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: v16.x
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: npm install
+        run: npm ci
+      - name: Enforce docs footer
+        run: node ./scripts/append-footer.js
+      - name: Git Prep
+        run: |
+          git config --local user.email "footer-bot@coolproductinc.technology"
+          git config --local user.name "footer-bot[bot]"
+          git diff
+          git diff-index HEAD
+          git diff-index --quiet HEAD || git commit -am "docs(footer): ensure footer exists on all docs pages"
+      - name: Git Push
+        run: "git push origin $(git branch --show-current) || true"
