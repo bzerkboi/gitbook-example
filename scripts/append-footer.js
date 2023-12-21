@@ -1,9 +1,9 @@
-console.debug("testing my logging")
-
 var glob = require("glob");
 var fsPromises = require("fs/promises");
 var path = require("path");
 const { spawn } = require("child_process");
+
+console.debug("testing my logging")
 
 // read environmental variables 
 const ghActor = process.env["GITHUB_ACTOR"];
