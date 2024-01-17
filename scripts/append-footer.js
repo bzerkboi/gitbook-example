@@ -27,7 +27,7 @@ console.debug("Footer "+footer)
 
 console.debug("my testing of files")
 const g = new glob('**/*.js', {})
-for await (const file of g) {
+for (const file of g) {
   console.debug('found a foo file:', file)
 }
 console.debug("done testing of my files")
