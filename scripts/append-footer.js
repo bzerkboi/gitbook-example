@@ -27,8 +27,8 @@ console.debug("Footer "+footer)
 
 console.debug("my testing of files")
 glob("**/*.js", function (err, files) {
-  console.log(files)
-  console.log("error "+err)
+  console.debug(files)
+  console.debug("error "+err)
 })
 console.debug("done testing of my files")
 
