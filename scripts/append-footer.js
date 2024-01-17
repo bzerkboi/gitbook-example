@@ -27,7 +27,7 @@ const footer = require("fs").readFileSync(path.join(__dirname, "./footer.md"));
 console.debug("Start looking for files ...");
 console.debug(__dirname);
 glob(path.join(__dirname, "../docs/**/*.md"), async (error, fileNames) => {
-  
+  console.log(fileNames);
   // for each document
   const editPromises = fileNames.map(async (fileName) => {
     console.debug("file name found ="+ fileName);
