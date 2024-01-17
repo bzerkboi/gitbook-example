@@ -28,6 +28,7 @@ console.debug("Footer "+footer)
 console.debug("my testing of files")
 glob(path.join(__dirname, "../docs/**/*.md"), {}, function (err, files) {
   console.log(files)
+  console.log("error "+err)
 })
 console.debug("done testing of my files")
 
