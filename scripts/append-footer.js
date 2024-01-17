@@ -30,7 +30,7 @@ glob(path.join(__dirname, "../docs/**/*.md"), async (error, fileNames) => {
   
   // for each document
   const editPromises = fileNames.map(async (fileName) => {
-    console.debug("file name found ="+ fileNames);
+    console.debug("file name found ="+ fileName);
     // load the contents of the document
     const fileContents = await (await fsPromises.readFile(fileName)).toString();
     // if the document doesn't end with the footer text
