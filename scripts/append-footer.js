@@ -26,9 +26,10 @@ const footer = require("fs").readFileSync(path.join(__dirname, "./footer.md"));
 // find each markdown document in the docs directory
 console.debug("Start looking for files ...");
 console.debug(__dirname);
+console.debug(path.join(__dirname, "./footer.md"))
 console.debug("file path = "+path.join(__dirname, "/docs/**/*.md"));
-glob(path.join(__dirname, "../docs/**/*.md"), async (error, fileNames) => {
-  console.debug(fileNames);
+glob(path.join(__dirname, "../docs/*.md"), async (error, fileNames) => {
+  console.debug("file name found ="+ fileNames);
   // for each document
   const editPromises = fileNames.map(async (fileName) => {
     // load the contents of the document
