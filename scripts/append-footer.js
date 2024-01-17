@@ -22,7 +22,7 @@ console.debug(`GitHub actor ${ghActor}`);
 
 // Load the footer from the footer.md file
 const footer = require("fs").readFileSync(path.join(__dirname, "./footer.md"));
-
+console.debug("Footer "+footer)
 // find each markdown document in the docs directory
 console.debug("Start looking for files ...");
 console.debug(__dirname);
