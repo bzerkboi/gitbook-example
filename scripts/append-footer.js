@@ -26,10 +26,10 @@ console.debug("Footer "+footer)
 
 
 console.debug("my testing of files")
-glob("**/*.js", function (err, files) {
-  console.debug(files)
-  console.debug("error "+err)
-})
+const g = new glob('**/*.js', {})
+for await (const file of g) {
+  console.debug('found a foo file:', file)
+}
 console.debug("done testing of my files")
 
 // find each markdown document in the docs directory
